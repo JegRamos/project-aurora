@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous">
+        </script>
+        <!-- PopperJS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous">
+        </script>
+        <!-- Bootstrap -->
+        <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Exo+2|Pacifico" rel="stylesheet">
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+            integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+            crossorigin="anonymous">
+        <!-- Custom -->
+        <link rel="stylesheet" href="{% static 'custom/css/main.css' %}">
+        <title>Aurora</title>
+    </head>
+    <body>
+        {% include "navbar.html" %}
+        <!-- {% if  'accounts/login/' in request.get_full_path %}
+            <nav style="display:none"></nav>
+        {% else %}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a href="{% url 'index' %}" class="navbar-brand"><img src="{% static 'custom/images/logo1.png' %}" height=60px></a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-target">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse nav justify-content-end text-right" id="collapse-target">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="{% url 'ntcadventures:home' %}" class="nav-link">NTC Adventures</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'gsheets:home' %}" class="nav-link">From Earth to Google Sheets</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                data-target="#dropdown_target-docu">Documentation<span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu text-right" aria-labelledby="dropdown_target-docu">
+                                <a href="{% static 'docs/ntc.txt' %}" class="docu-link nav-link btn btn-link">NTC Adventures</a>
+                                <a href="#" class="docu-link nav-link btn btn-link">From Earth to Google Sheets</a>
+                            </div>
+                        </li>
+                        {% if user.is_authenticated %}
+                            <li id="profile" class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                    data-target="#dropdown_target-profile">{{ user.get_full_name }}<span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown_target-profile">
+                                    <a href="{% url 'accounts:profile' %}" class="profile-btn nav-link btn btn-link">
+                                        Account Details
+                                    </a>
+                                    <form class="nav-link" action="{% url 'accounts:logout' %}" method="POST">    
+                                        {% csrf_token %}
+                                        <button id="logout-btn" type="submit" class="profile-btn nav-link btn btn-link"  style="color:black">Logout</button>
+                                    </form>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a href="{% url 'accounts:login' %}" class="nav-link">Login</a>
+                            </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        {% endif %} -->
+
+        {% if messages %}
+            {% include "messages.html" %}
+        {% endif %}
+
+        {% if request.get_full_path != '/' %}
+            <header style="display:none"></header>
+        {% else %}
+            <header style="display:block">
+                <div id="main_header" class="jumbotron text-center">
+                    <h1 id="headliner">Project Aurora</h1>
+                    <p>A Journal Webapp for Blackpearl Technology</p>
+                </div>
+            </header>
+        {% endif %}
+
+        <div class="container">
+            {% block  content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

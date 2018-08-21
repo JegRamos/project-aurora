@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container col-md-8 offset-md-2 mt-3">
+        <div class="card border border-warning">
+            <div class="card-header bg-warning text-white text-center">
+                <h4>You can add more details</h4>
+            </div>
+            <div class="card-body bg-light">
+                <div class="row">
+                    <div class="text-center col-md-6">
+                        <label for="agenda" class="bg-warning p-1 w-100">Agenda:</label>
+                        <p name="agenda">{{ entry_detail.agenda }}</p>
+                    </div>
+                    <div class="text-center col-md-6">
+                        <label for="agenda" class="bg-warning p-1 w-100">Supervisor:</label>
+                        <p name="agenda">{{ entry_detail.supervisor.name }}</p>
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="text-center col-md-6">
+                        <label for="date_started" class="bg-warning p-1 w-100">Date Opened:</label>
+                        <p name="date_started">{{ entry_detail.date_started }}</p>
+                    </div>
+                </div>
+                <hr>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row d-flex align-items-center">
+                        <label for="overtime" class="col-md-4">Request Overtime?</label>
+                        {{ form.request_overtime }}
+                    </div>
+                    <br>
+                    <div class="form-row d-flex align-items-center text-truncate">
+                        <label for="file" class="col-md-4">Upload Files</label>
+                        {{ mediaform.file }}
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-success float-right m-1">Complete Adventure</button>
+                    <a href="{% url 'ntcadventures:home' %}" class="btn btn-danger float-right m-1">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

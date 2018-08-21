@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container col-md-10 offset-md-1 mt-3">
+    <div class="bg-success text-white p-3 rounded mb-2">
+        <a class="btn btn-link float-right text-white" href="{% url 'ntcadventures:home' %}">
+        << Back
+        </a>
+        <h4>{{ entry.date_ended | date }}</h4>
+        <h6><em>Supervised by {{ entry.supervisor }}</em></h6>
+    </div>
+    <div class="text-center">
+    {% if entry_media %}
+    <h4 class="m-2">Click on the link(s) to view the uploaded files</h4>
+    <hr>
+        {% for media in entry_media %}
+        <div class="col text-truncate">
+            <span>{{ forloop.counter }}: </span> <a class="link" href="{{ media.file.url }}" target="_blank">{{ media.filename }}</a>
+            <hr>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h4><em class="muted">No files attached</em></h4>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

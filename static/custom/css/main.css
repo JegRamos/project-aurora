@@ -1,0 +1,184 @@
+* {
+    font-family: 'Exo 2', sans-serif;
+}
+
+ul, li {
+    list-style: none;
+}
+
+nav {
+    box-shadow: 0 5px 3px -3px #777;
+    border: 0;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+#collapse-target {
+    margin-right: 40px;
+} 
+
+.navbar-brand {
+    margin-left: 3%;
+}
+
+#headliner {
+    font-family: 'Pacifico', cursive;
+    font-size: 65px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    color: #00C853;
+}
+
+#main_header {
+    margin-bottom: 0;
+    height: 89.5vh;
+}
+
+.docu-link {
+    margin: 5px 15px;
+    font-size: 13px;
+}
+
+.docu-link:hover {
+    background-color:lightgray;
+}
+
+.profile-btn {
+    font-size: 13px;
+    margin: 5px 15px;
+}
+
+.profile-btn:hover {
+    background-color: lightgray;
+}
+
+#logout-btn {
+    width: 100%;
+    margin: 0;
+}
+
+/* Login */
+.main-section {
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 0;
+}
+
+.modal-content {
+    background-color: #ebebeb;
+    opacity: .80;
+    padding: 0 18px;
+    box-shadow: 0 0 3px #848484;
+}
+
+.user-img {
+    margin-left: 5px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group input {
+    height: 42px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 18px;
+    box-shadow: 0 0 3px #848484;
+    /* padding-left: 54px; */
+}
+
+#login_btn {
+    width: 40%;
+    margin: 5px 0 25px;
+    background-color: #00C853;
+    color: white;
+    font-size: 19px;
+    padding: 7px 14px;
+    border-radius: 5px;
+    border-bottom: 4px solid #219882;
+}
+
+#login_btn:hover, #login_btn:focus {
+    background-color: #00C700;
+    border-bottom: 4px solid #00C700!important;
+}
+
+#login_icon {
+    font-size: 20px;
+    margin-right: 7px;
+}
+
+
+
+/* Mobile view. Hiding and repositioning some elements */
+@media screen and (max-width: 600px) {
+    #login_icon {
+        display: none;
+    }
+
+    #login-required-alert {
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .main-section {
+        margin-top: 45px;
+    }
+
+    .forgot:last-of-type {
+        padding: 5px 0 15px;
+        font-size: 12px;
+    }
+
+    .user-img {
+        right: 15px;
+    }
+
+    #login-form-errors {
+        font-size: 10px;
+    }
+
+    .navbar-brand {
+        margin-left: 0;
+    }
+
+    nav {
+        font-size: 16px;
+    }
+
+    .docu-link {
+        font-size: 12px;
+    }
+
+    #logout-btn {
+        width: 80%;
+        margin-left: 18px;
+    }
+
+    #account-email {
+        font-size: 15px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+}
+
+.forgot {
+    padding: 5px 0 20px;
+}
+
+.forgot a {
+    color: #00C853;
+    font-weight: bold;
+}
+
+/* NTC Styles */
+

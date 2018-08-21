@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="modal-dialog text-center">
+        <div class="col-sm-8 main-section">
+            <div class="modal-content">
+                <div class="col-12 user-img">
+                    <img src="{% static 'custom/images/logo1.png' %}">
+                </div>
+                <form class="col-12" action="{# {% url 'accounts:login' %} #}" method="POST">
+                    {% csrf_token %}
+                    <!-- Check if the user should be redirected after login -->
+                    {% if request.GET.next %}
+                        <div id="login-required-alert" class="alert alert-warning fixed-top alert-dismissible fade show text-center" role="alert">You must be logged in to access this page
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <input type="hidden" name="next" value="{{ request.GET.next }}">
+                    {% endif %}
+                    <!-- Outputting erros -->
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <div id="login-form-errors" class="alert alert-danger alert-dismissible fade show fixed-top text-center" role="alert" style="margin-bottom: 0">{{ error }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success fixed-top">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                        
+                    <!-- End check -->
+                    <div class="form-group">
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password }}
+                    </div>
+                    <button id="login_btn" type="submit" class="btn"><i id="login_icon" class="fas fa-sign-in-alt"></i>Login</button>
+                </form>
+                <div class="col-12 forgot">
+                    <!-- <a href="#">Request a Password Reset</a>
+                    <hr class="divider"> -->
+                    <a href="{% url 'index' %}">Go back</a>
+                </div>
+            </div> <!-- End of Modal Content -->
+        </div>
+    </div>
+{% endblock %}
